@@ -1,4 +1,7 @@
-#include "kiss.h"
+#include "jlkiss64.h"
+
+// A 64-bit variant of George Marsaglia's KISS generator, ported from the C 
+// source written by David Jones.
 
 JLKISS64::JLKISS64() {
         _x = 123456789123ULL;
