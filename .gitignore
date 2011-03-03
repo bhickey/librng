@@ -1,0 +1,15 @@
+.*.sw[a-z]
+*.un~
+Session.vim
+.DS_Store
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+lo
+*.lo
+*.o
+*.so
+*.lai
+*.la
+*.a
