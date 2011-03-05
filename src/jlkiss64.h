@@ -8,11 +8,10 @@
 class JLKISS64 : public RNG {
         public:
                 JLKISS64();
-                RNG split();
+                JLKISS64 split();
                 void seed(RNG*);
                 uint64_t get_uint64();
                 uint32_t get_uint32();
-                bool get_bool();
         private:
                 void fill_buffer();
                 uint64_t _x, _y;

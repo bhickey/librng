@@ -1,7 +1,7 @@
 #include "jlkiss64.h"
 
-// A 64-bit variant of George Marsaglia's KISS generator, ported from the C 
-// source written by David Jones.
+// A 64-bit variant of George Marsaglia's KISS generator designed by David 
+// Jones, and ported from the C sources written by the same.
 
 JLKISS64::JLKISS64() {
         _x = 123456789123ULL;
@@ -12,7 +12,7 @@ JLKISS64::JLKISS64() {
         _c2 = 1732654;
 }
 
-RNG
+JLKISS64
 JLKISS64::split() {
         JLKISS64 k;
         k.seed(this);
