@@ -26,11 +26,7 @@ JLKISS64::seed(RNG *rng) {
         _z2 = rng->get_uint32();
         _c1 = rng->get_uint32();
         _c2 = rng->get_uint32();
-        do {
-                _y  = rng->get_uint64();
-        } while(!_y);
-
-        _buffer_size = 0;
+        _y  = rng->get_nonzero_bits(64);
 }
 
 uint64_t
@@ -53,12 +49,5 @@ JLKISS64::get_uint64()
 uint32_t
 JLKISS64::get_uint32()
 {
-        return ((uint32_t) get_bits(32));
-}
-
-void
-JLKISS64::fill_buffer()
-{
-        _buffer = get_uint64();
-        _buffer_size = sizeof(_buffer) * 8;
+        return ((uint32_t) get_uint64());
 }

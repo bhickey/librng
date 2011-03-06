@@ -27,7 +27,6 @@ KISS::seed(RNG *rng) {
 	} else {
                 _c = rng->get_uint32();
 	}
-	_buffer_size = 0;
 }
 
 uint64_t
@@ -48,13 +47,4 @@ KISS::get_uint32()
 	t = a * _z + _c;
 	_c = t >> 32;
 	return (_x+_y+(_z=t));
-}
-
-void
-KISS::fill_buffer()
-{
-	_buffer = get_uint32();
-        _buffer <<= 32;
-        _buffer |= get_uint32();
-	_buffer_size = 64;
 }

@@ -5,16 +5,17 @@
 #include <stdint.h>
 #include "rng.h"
 
-class JKISS : public RNG {
-	public:
-		JKISS();
+class JKISS : RNG {
+        public:
+                JKISS();
                 RNG* split();
-		void seed(RNG*);
+                void seed(RNG*);
+                friend class RNG;
+        protected:
                 uint64_t get_uint64();
-		uint32_t get_uint32();
-	private:
-		void fill_buffer();
-		uint32_t _x, _y, _z, _c;
+                uint32_t get_uint32();
+        private:
+                uint32_t _x, _y, _z, _c;
 };
 
 #endif

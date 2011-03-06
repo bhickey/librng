@@ -23,18 +23,21 @@ JKISS::seed(RNG *rng)
         _x = rng->get_uint32();
         _y = rng->get_nonzero_bits(32);
         _z = rng->get_uint32();
+        
         if(!_z) {
                 _c = rng->get_nonzero_bits(32);
         } else {
                 _c = rng->get_uint32();
         }
-        _buffer_size = 0;
 }
 
 uint64_t
 JKISS::get_uint64()
 {
-        return (get_bits(64));
+        uint64_t result = get_uint32();
+        result <<= 32;
+        result |= get_uint32();
+        return (result);
 }
 
 uint32_t
@@ -49,11 +52,4 @@ JKISS::get_uint32()
         _c = t >> 32; 
         _z = t;
         return (_x + _y + _z);
-}
-
-void
-JKISS::fill_buffer()
-{
-        _buffer = get_uint64();
-        _buffer_size = sizeof(_buffer) * 8;
 }

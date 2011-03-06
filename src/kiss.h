@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "rng.h"
 
-class KISS : public RNG {
+class KISS : RNG {
 	public:
 		KISS();
                 RNG* split();
@@ -13,7 +13,6 @@ class KISS : public RNG {
 		uint64_t get_uint64();
 		uint32_t get_uint32();
 	private:
-		void fill_buffer();
 		uint32_t _x, _y, _z, _c;
 };
 
