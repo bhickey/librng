@@ -12,10 +12,10 @@ JLKISS64::JLKISS64() {
         _c2 = 1732654;
 }
 
-JLKISS64
+RNG*
 JLKISS64::split() {
-        JLKISS64 k;
-        k.seed(this);
+        RNG* k = new JLKISS64();
+        k->seed(this);
         return k;
 }
 

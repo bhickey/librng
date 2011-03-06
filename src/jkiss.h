@@ -8,9 +8,9 @@
 class JKISS : public RNG {
 	public:
 		JKISS();
+                RNG* split();
 		void seed(RNG*);
-		JKISS split();
-		uint64_t get_uint64();
+                uint64_t get_uint64();
 		uint32_t get_uint32();
 	private:
 		void fill_buffer();

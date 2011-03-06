@@ -30,7 +30,7 @@ RNG::get_nonzero_bits(short n)
 uint64_t
 RNG::get_bits(short n)
 {
-	uint64_t result;
+	uint64_t result = 0;
 	if(_buffer_size < n)
 	{
 		result = _buffer;
@@ -38,7 +38,7 @@ RNG::get_bits(short n)
 		n -= _buffer_size;
 		fill_buffer();
 	}
-	result |= _buffer & (1 << n) - 1;
+	result = result | (_buffer & (1ULL << n) - 1);
 	_buffer_size -= n;
 	_buffer >>= n;
 	return (result);

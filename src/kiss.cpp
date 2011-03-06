@@ -10,10 +10,10 @@ KISS::KISS() {
 	_c = 764321;
 }
 
-KISS
+RNG*
 KISS::split() {
-	KISS k;
-	k.seed(this);
+	RNG* k = new KISS();
+	k->seed(this);
 	return k;
 }
 
@@ -53,6 +53,8 @@ KISS::get_uint32()
 void
 KISS::fill_buffer()
 {
-	_buffer = get_uint64();
-	_buffer_size = sizeof(_buffer) * 8;
+	_buffer = get_uint32();
+        _buffer <<= 32;
+        _buffer |= get_uint32();
+	_buffer_size = 64;
 }

@@ -1,5 +1,5 @@
 ################################################################################
-
+# libRNG
 ################################################################################
 
 DEBUG	:= YES
@@ -8,7 +8,6 @@ CC	:= g++
 DEFAULT_FLAGS   := -Wall -I${SRC_DIR}
 DEBUG_FLAGS	:= ${DEFAULT_FLAGS} -Wno-format -g -DDEBUG
 RELEASE_FLAGS	:= ${DEFAULT_FLAGS} -Wno-unknown-pramas -Wno-format -O3
-
 
 SOFLAGS := -fPIC -shared
 SHARED_OBJECT := librng.so

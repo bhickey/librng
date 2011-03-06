@@ -9,11 +9,11 @@ JKISS::JKISS() {
         _c = 6543217;
 }
 
-JKISS
+RNG*
 JKISS::split()
 {
-        JKISS k;
-        k.seed(this);
+        RNG* k = new JKISS();
+        k->seed(this);
         return k;
 }
 
