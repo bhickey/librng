@@ -10,6 +10,21 @@ RNG::get_double() {
 	return ((double) (0x3ff0000000000000 | (get_uint64() & ((1ULL << 52) -1))) - 1.0);
 }
 
+double
+RNG::get_normal(double mu, double sigma) {
+        double x, y, r;
+
+        do {
+                x = 2.0 * get_double();
+                y = 2.0 * get_double();
+                r = x * x + y * y;
+        }while(r== 0.0 || r >= 1.0);
+
+        r = sqrt((-2.0 * log(r)) / r);
+
+        return (x * r * sigma + mu);
+}
+
 bool
 RNG::get_bool()
 {

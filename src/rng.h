@@ -2,6 +2,7 @@
 #define __LIB_RNG_RNG_HEADER__ 
 #pragma once
 
+#include <math.h>
 #include <stdint.h>
 
 class RNG {
@@ -11,6 +12,7 @@ class RNG {
                 virtual uint32_t get_uint32() = 0;
                 virtual uint64_t get_uint64() = 0;
 
+                double get_normal(double mu = 0.0, double sigma = 0.0);
                 double get_double();
                 float get_float();
                 bool get_bool();
