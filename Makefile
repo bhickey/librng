@@ -1,4 +1,4 @@
-################################################################################
+###############################################################################
 # libRNG
 ################################################################################
 
@@ -20,7 +20,7 @@ endif
 
 BUILD_DIR   := build
 SRC_DIR	    := src
-LIBRNG_SRCS := rng.cpp kiss.cpp jkiss.cpp jlkiss64.cpp jkiss32.cpp
+LIBRNG_SRCS := rng.cpp kiss.cpp jkiss.cpp jlkiss64.cpp jkiss32.cpp superkiss.cpp
 LIBRNG_OBJS := $(addsuffix .o, $(basename $(LIBRNG_SRCS)))
 SRCS := $(addprefix $(SRC_DIR)/, $(LIBRNG_SRCS))
 OBJS := $(addprefix $(BUILD_DIR)/, $(LIBRNG_OBJS))
