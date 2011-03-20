@@ -10,8 +10,6 @@ class JKISS : RNG {
                 JKISS();
                 RNG* split();
                 void seed(RNG*);
-                friend class RNG;
-        protected:
                 uint64_t get_uint64();
                 uint32_t get_uint32();
         private:

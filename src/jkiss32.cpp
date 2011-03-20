@@ -28,7 +28,7 @@ JKISS32::seed(RNG *rng) {
 uint64_t
 JKISS32::get_uint64()
 {
-	return (get_bits(64));
+        return (((uint64_t) get_uint32()) << 32 | get_uint32());
 }
 
 uint32_t

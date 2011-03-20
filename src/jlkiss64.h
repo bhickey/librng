@@ -10,8 +10,6 @@ class JLKISS64 : RNG {
                 JLKISS64();
                 RNG* split();
                 void seed(RNG*);
-                friend class RNG;
-        protected:
                 uint64_t get_uint64();
 		uint32_t get_uint32();
         private:
