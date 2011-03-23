@@ -14,8 +14,14 @@ XOR32::split() {
 }
 
 void
+XOR32::seed(uint32_t s)
+{
+        _state = s;
+}
+
+void
 XOR32::seed(RNG *rng) {
-        _state ^= rng->get_uint64();
+        _state ^= rng->get_uint32();
         _state = 1490024343005336237ULL * _state + 123456789;
 }
 

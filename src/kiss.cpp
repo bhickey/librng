@@ -18,7 +18,14 @@ KISS::split() {
 }
 
 void
-KISS::seed(RNG *rng) {
+KISS::seed(uint32_t s)
+{
+        _y = s;
+}
+
+void
+KISS::seed(RNG *rng)
+{
 	_x = rng->get_uint32();
 	_y = rng->get_nonzero_bits(32);
 	_z = rng->get_uint32();

@@ -20,7 +20,14 @@ JLKISS64::split() {
 }
 
 void
-JLKISS64::seed(RNG *rng) {
+JLKISS64::seed(uint32_t s)
+{
+        _y = s;
+}
+
+void
+JLKISS64::seed(RNG *rng)
+{
         _x  = rng->get_uint64();
         _z1 = rng->get_uint32();
         _z2 = rng->get_uint32();

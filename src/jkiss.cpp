@@ -18,6 +18,12 @@ JKISS::split()
 }
 
 void
+JKISS::seed(uint32_t s)
+{
+        _y = s;        
+}
+
+void
 JKISS::seed(RNG *rng) 
 {
         _x = rng->get_uint32();

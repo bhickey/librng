@@ -18,8 +18,9 @@ SuperKISS::refill() {
         _index = 1;
         return (_Q[0]);
 }
-        
-SuperKISS::SuperKISS() {
+
+SuperKISS::SuperKISS() 
+{
         _index = 41790;
         _carry = 362436;
         _xcng = 1236789;
@@ -27,15 +28,24 @@ SuperKISS::SuperKISS() {
 }
 
 RNG*
-SuperKISS::split() {
+SuperKISS::split() 
+{
 	RNG* k = new SuperKISS();
 	k->seed(this);
 	return k;
 }
 
 void
-SuperKISS::seed(RNG *rng) {
-	_index = rng->get_uint32();
+SuperKISS::seed(uint32_t s)
+{
+        _carry = s;
+        refill();
+}
+
+void
+SuperKISS::seed(RNG *rng) 
+{
+	_index = 41790;
 	_carry = rng->get_uint32();
         _xcng = rng->get_uint32();
         _xs = rng->get_uint32();
