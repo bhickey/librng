@@ -40,17 +40,19 @@ uint64_t
 JLKISS64::get_uint64()
 {
         uint64_t t;
+        uint64_t y = _y;
         _x = 1490024343005336237ULL * _x + 123456789; 
-        _y ^= _y << 21; 
-        _y ^= _y >> 17; 
-        _y ^= _y << 30; /* Do not set y=0! */ 
+        y ^= y << 21; 
+        y ^= y >> 17; 
+        y ^= y << 30; /* Do not set y=0! */ 
+        _y = y;
         t = 4294584393ULL * _z1 + _c1; 
         _c1 = t >> 32; 
         _z1 = t; 
         t = 4246477509ULL * _z2 + _c2; 
         _c2 = t >> 32; 
         _z2 = t;
-        return (_x + _y + _z1 + ((uint64_t)_z2 << 32)); 
+        return (_x + y + _z1 + ((uint64_t)_z2 << 32)); 
 }
 
 uint32_t

@@ -62,9 +62,11 @@ SuperKISS::get_uint64()
 uint32_t
 SuperKISS::get_uint32()
 {
+        uint64_t xs = _xs;
         _xcng = 69069 * _xcng + 123;
-        _xs ^= _xs << 13;
-        _xs ^= _xs >> 17;
-        _xs ^= _xs >> 5;
+        xs ^= (xs << 13);
+        xs ^= (xs >> 17);
+        xs ^= (xs >> 5);
+        _xs = xs;
         return (_index < 41790 ? _Q[_index++] : refill() + _xcng + _xs);
 }

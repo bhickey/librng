@@ -46,12 +46,14 @@ uint32_t
 KISS::get_uint32()
 {
 	uint64_t t, a;
+        uint32_t y = _y;
 	a = 698769069ULL;
 	_x = 69069 * _x + 12345;
-	_y ^= (_y << 13);
-	_y ^= (_y >> 17);
-	_y ^= (_y << 5);
+	y ^= (y << 13);
+	y ^= (y >> 17);
+	y ^= (y << 5);
+        _y = y;
 	t = a * _z + _c;
 	_c = t >> 32;
-	return (_x+_y+(_z=t));
+	return (_x + y + (_z=t));
 }

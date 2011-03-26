@@ -27,9 +27,10 @@ XOR64::seed(RNG *rng) {
 uint64_t
 XOR64::get_uint64()
 {
-        _state ^= (_state << 13);
-        _state ^= (_state >> 7);
-        return (_state ^= (_state << 17));
+        uint64_t local = _state;
+        local ^= (local << 13);
+        local ^= (local >> 7);
+        return (_state = (local ^= (local << 17)));
 }
 
 uint32_t

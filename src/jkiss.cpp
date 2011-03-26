@@ -50,12 +50,14 @@ uint32_t
 JKISS::get_uint32()
 {
         uint64_t t;
+        uint32_t y = _y;
         _x = 314527869 * _x + 1234567; 
-        _y ^= _y << 5; 
-        _y ^= _y >> 7; 
-        _y ^= _y << 22; 
+        y ^= y << 5; 
+        y ^= y >> 7; 
+        y ^= y << 22; 
+        _y = y;
         t = 4294584393ULL * _z + _c; 
         _c = t >> 32; 
         _z = t;
-        return (_x + _y + _z);
+        return (_x + y + _z);
 }

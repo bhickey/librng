@@ -32,10 +32,10 @@ XOR32::get_uint64()
         return ((s << 32) | get_uint32());
 }
 
-uint32_t
+inline uint32_t
 XOR32::get_uint32()
 {
-        _state ^= (_state << 13);
-        _state ^= (_state >> 17);
-        return (_state ^= (_state << 5));
+        uint32_t local = _state ^ (_state << 13);
+        local ^= local >> 17;
+        return (_state = local ^ (local << 5));
 }

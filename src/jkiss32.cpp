@@ -42,13 +42,15 @@ uint32_t
 JKISS32::get_uint32()
 {
         int32_t t;
-        _y ^= (_y << 5);
-        _y ^= (_y >> 7);
-        _y ^= (_y << 22);
+        int32_t y = _y;
+        y ^= (y << 5);
+        y ^= (y >> 7);
+        y ^= (y << 22);
+        _y = y;
         t = _z + _w + _c;
         _z = _w;
         _c = t < 0;
-        _w = t & 2147483647;
-        _x += 1411392427;
-	return (_x+_y+(_z=t));
+        _w = t & 0x7FFFFFFF;
+        _x += 0x542023AB;
+	return (_x + _y + _w);
 }
