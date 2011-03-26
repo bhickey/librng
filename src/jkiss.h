@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "rng.h"
 
-class JKISS : RNG {
+class JKISS : public RNG {
         public:
                 JKISS();
                 RNG* split();

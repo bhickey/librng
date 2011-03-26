@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "rng.h"
 
-class XOR32 : RNG {
+class XOR32 : public RNG {
 	public:
 		XOR32();
                 RNG* split();

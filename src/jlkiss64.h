@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "rng.h"
 
-class JLKISS64 : RNG {
+class JLKISS64 : public RNG {
         public:
                 JLKISS64();
                 RNG* split();

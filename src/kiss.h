@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "rng.h"
 
-class KISS : RNG {
+class KISS : public RNG {
 	public:
 		KISS();
                 RNG* split();
