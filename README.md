@@ -13,6 +13,8 @@ libRNG is a [public domain](http://unlicense.org/) collection of pseudo-random n
 
 `seed_with(uint32_t)` constructs a linear-congrugential generator (LCG), which is then used as the argument to `seed(RNG*)`. LCGs have some bad properties: correlation between sequential outputs, and distribution of outputs in a few hyperplanes. This will be replaced with a 32-bit Xorshift generator, or a complementary multiply with carry generator.
 
+`get_geometric()` relies on `__builtin_ctz`. A version of this function should be provided for users of non-GNU compilers.
+
 ## Acknowledgements
 The generators presented here are largely adapted from the public domain C sources in David Jones's manuscript _Good   
 Practice in (Pseudo) Random Number Generation for Bioinformatics Applications_ ([pdf](http://www.cs.ucl.ac.uk/staff/d.jones/GoodPracticeRNG.pdf)).
