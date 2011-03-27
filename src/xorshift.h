@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include "rng.h"
 
-template<uint8_t x, uint8_t y, uint8_t z>
+template<int x, int y, int z>
 class Xorshift : public RNG {
 	public:
 		Xorshift();

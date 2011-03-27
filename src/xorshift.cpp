@@ -1,14 +1,15 @@
 #include "xorshift.h"
 
-// A templated version of the Xorshift generator
+// A templated version of the Xorshift generator.
+// If you want to use this, you'll need to add your own instances.
 
-template<uint8_t x, uint8_t y, uint8_t z>
+template<int x, int y, int z>
 Xorshift<x,y,z>::Xorshift() {
         _state = 88172645463325252LL;
 }
 
 
-template<uint8_t x, uint8_t y, uint8_t z>
+template<int x, int y, int z>
 RNG*
 Xorshift<x,y,z>::split() {
 	RNG* k = new Xorshift();
@@ -16,28 +17,28 @@ Xorshift<x,y,z>::split() {
 	return k;
 }
 
-template<uint8_t x, uint8_t y, uint8_t z>
+template<int x, int y, int z>
 void
 Xorshift<x,y,z>::seed(uint32_t s)
 {
         _state = s;
 }
 
-template<uint8_t x, uint8_t y, uint8_t z>
+template<int x, int y, int z>
 void
 Xorshift<x,y,z>::seed(RNG *rng) {
         _state ^= rng->get_uint32();
         _state = 1490024343005336237ULL * _state + 123456789;
 }
 
-template<uint8_t x, uint8_t y, uint8_t z>
+template<int x, int y, int z>
 uint32_t
 Xorshift<x,y,z>::get_uint32()
 {
         return (get_uint32() & 0xFFFFFFFF);
 }
 
-template<uint8_t x, uint8_t y, uint8_t z>
+template<int x, int y, int z>
 uint64_t
 Xorshift<x,y,z>::get_uint64()
 {
