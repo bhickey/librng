@@ -3,7 +3,7 @@
 // A templated version of the Xorshift generator
 
 template<uint8_t x, uint8_t y, uint8_t z>
-Xorshift<x,y,z>::XORSHIFT() {
+Xorshift<x,y,z>::Xorshift() {
         _state = 88172645463325252LL;
 }
 
