@@ -25,6 +25,8 @@ class RNG {
 
 };
 
+// LCG included for use only as a seeder of other generators.
+// (ie. expanding a 32-bit seed to fill the generator's statespace)
 class LCG : public RNG {
         public:
                 LCG();
