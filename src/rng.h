@@ -19,6 +19,7 @@ class RNG {
                 double get_double();
                 float get_float();
                 bool get_bool();
+                int get_geometric();
                 uint64_t get_bits(short);
                 uint64_t get_nonzero_bits(short);
 

@@ -1,3 +1,4 @@
+#include "rng.h"
 #include "rng_internal.h"
 
 void
@@ -48,12 +49,14 @@ RNG::get_float()
 }
 
 double
-RNG::get_double() {
+RNG::get_double()
+{
 	return ((double) (0x3ff0000000000000 | (get_uint64() & ((1ULL << 52) -1))) - 1.0);
 }
 
 double
-RNG::get_normal(double mu, double sigma) {
+RNG::get_normal(double mu, double sigma)
+{
         double x, y, r;
 
         do {
@@ -65,6 +68,22 @@ RNG::get_normal(double mu, double sigma) {
         r = sqrt((-2.0 * log(r)) / r);
 
         return (x * r * sigma + mu);
+}
+
+int
+RNG::get_geometric() 
+{
+        // The probability of looping is 1 in 2^32, it's reasonable to
+        // truncate the output from a 64-bit generator to avoid unnecessary
+        // calls by a 32-bit generator.
+        uint32_t population;
+        int result = 0;
+        do {
+                population = get_uint32();        
+                result += (population ? __builtin_ctz(population) : 32);
+        } while(!population);
+
+        return result;
 }
 
 bool
