@@ -1,5 +1,5 @@
-#ifndef __LIB_RNG_KISS_HEADER__
-#define __LIB_RNG_KISS_HEADER__
+#ifndef __LIB_RNG_XOR64_HEADER__
+#define __LIB_RNG_XOR64_HEADER__
 #pragma once
 
 #include <stdint.h>
