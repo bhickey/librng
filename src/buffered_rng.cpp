@@ -42,5 +42,5 @@ BufferedRNG::get_uint64()
 inline uint32_t
 BufferedRNG::get_uint32()
 {
-        return (get_uint64() & 0x7FFFFFFF);
+        return (get_uint64() & 0xFFFFFFFF);
 }

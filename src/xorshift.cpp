@@ -34,7 +34,7 @@ template<uint8_t x, uint8_t y, uint8_t z>
 uint32_t
 Xorshift<x,y,z>::get_uint32()
 {
-        return (get_uint32() & 0x7FFFFFFF);
+        return (get_uint32() & 0xFFFFFFFF);
 }
 
 template<uint8_t x, uint8_t y, uint8_t z>
