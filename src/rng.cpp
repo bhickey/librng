@@ -136,9 +136,7 @@ LCG::get_uint32() {
 
 uint64_t
 LCG::get_uint64() {
-        uint64_t result = get_uint32();
-        result <<= 32;
-        return (result |= get_uint32());
+        return ((uint64_t) get_uint32() << 32 | get_uint32())
 }
 
 RNG*
