@@ -51,7 +51,7 @@ RNG::get_float()
 double
 RNG::get_double()
 {
-	return ((double) (0x3ff0000000000000 | (get_uint64() & ((1ULL << 52) -1))) - 1.0);
+	return ((double) (0x3ff0000000000000ULL | (get_uint64() & ((1ULL << 52) -1))) - 1.0);
 }
 
 double
@@ -107,9 +107,9 @@ uint64_t
 RNG::get_bits(short n)
 {
         if(n <= 32) {
-                return (get_uint32() & (1ULL << n) - 1);
+                return (get_uint32() & (1LL << n) - 1);
         } else {
-                return (get_uint64() & (1ULL << n) - 1);
+                return (get_uint64() & (1LL << n) - 1);
         }
 }
 
@@ -136,7 +136,7 @@ LCG::get_uint32() {
 
 uint64_t
 LCG::get_uint64() {
-        return ((uint64_t) get_uint32() << 32 | get_uint32())
+        return ((uint64_t) get_uint32() << 32 | get_uint32());
 }
 
 RNG*
