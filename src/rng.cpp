@@ -11,7 +11,7 @@ RNG::seed_with(uint32_t s) {
 }
 
 /* Produces a pseudo-random int on the interval [0,2^32) */
-inline int
+int
 RNG::get_int()
 {
         return (get_uint32() & 0x7FFFFFFF);

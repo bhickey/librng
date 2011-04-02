@@ -39,7 +39,7 @@ BufferedRNG::get_uint64()
         return _buffer[_index++];
 }
 
-inline uint32_t
+uint32_t
 BufferedRNG::get_uint32()
 {
         return (get_uint64() & 0xFFFFFFFF);
