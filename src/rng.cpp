@@ -1,8 +1,21 @@
 #include "rng.h"
 #include "rng_internal.h"
 
+uint32_t 
+RNG::get_uint32()
+{
+        return (get_uint64() & 0xFFFFFFFF);
+}
+
+uint64_t 
+RNG::get_uint64()
+{
+        return (((uint64_t) get_uint32() << 32) | get_uint32());
+}
+
 void
-RNG::seed_with(uint32_t s) {
+RNG::seed_with(uint32_t s)
+{
         if(!s) {
                 s = time(NULL);
         }

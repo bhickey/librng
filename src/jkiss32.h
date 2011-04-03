@@ -11,7 +11,6 @@ class JKISS32 : public RNG {
                 RNG* split();
                 void seed(uint32_t);
 		void seed(RNG*);
-		uint64_t get_uint64();
 		uint32_t get_uint32();
 	private:
 		uint32_t _x, _y, _z, _w, _c;

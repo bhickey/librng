@@ -25,13 +25,6 @@ XOR32::seed(RNG *rng) {
         _state = 1490024343005336237ULL * _state + 123456789;
 }
 
-uint64_t
-XOR32::get_uint64()
-{
-        uint64_t s = get_uint32();
-        return ((s << 32) | get_uint32());
-}
-
 uint32_t
 XOR32::get_uint32()
 {

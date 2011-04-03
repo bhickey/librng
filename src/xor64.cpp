@@ -32,9 +32,3 @@ XOR64::get_uint64()
         local ^= (local >> 7);
         return (_state = (local ^= (local << 17)));
 }
-
-uint32_t
-XOR64::get_uint32()
-{
-        return (get_uint64() & 0xFFFFFFFF);
-}

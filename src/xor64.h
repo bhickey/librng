@@ -12,7 +12,6 @@ class XOR64 : public RNG {
                 void seed(uint32_t);
 		void seed(RNG*);
 		uint64_t get_uint64();
-		uint32_t get_uint32();
 	private:
                 uint64_t _state;
 };

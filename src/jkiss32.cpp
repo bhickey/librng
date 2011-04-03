@@ -32,12 +32,6 @@ JKISS32::seed(RNG *rng)
 	_w = rng->get_uint32();
 }
 
-uint64_t
-JKISS32::get_uint64()
-{
-        return (((uint64_t) get_uint32()) << 32 | get_uint32());
-}
-
 uint32_t
 JKISS32::get_uint32()
 {

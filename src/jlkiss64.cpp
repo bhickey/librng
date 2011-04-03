@@ -54,9 +54,3 @@ JLKISS64::get_uint64()
         _z2 = t;
         return (_x + y + _z1 + ((uint64_t)_z2 << 32)); 
 }
-
-uint32_t
-JLKISS64::get_uint32()
-{
-        return ((uint32_t) get_uint64());
-}

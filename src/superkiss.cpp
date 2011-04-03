@@ -51,14 +51,6 @@ SuperKISS::seed(RNG *rng)
         _xs = rng->get_uint32();
 }
 
-uint64_t
-SuperKISS::get_uint64()
-{
-	uint64_t result = get_uint32();
-        return (result << 32 | get_uint32());
-        
-}
-
 uint32_t
 SuperKISS::get_uint32()
 {

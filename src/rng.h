@@ -9,8 +9,8 @@ class RNG {
         public:
                 virtual void seed(RNG*) = 0;
                 virtual RNG* split() = 0;
-                virtual uint32_t get_uint32() = 0;
-                virtual uint64_t get_uint64() = 0;
+                virtual uint32_t get_uint32();
+                virtual uint64_t get_uint64();
 
                 void seed_with(uint32_t);
                 int get_int();

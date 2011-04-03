@@ -36,12 +36,6 @@ KISS::seed(RNG *rng)
 	}
 }
 
-uint64_t
-KISS::get_uint64()
-{
-	return (get_bits(64));
-}
-
 uint32_t
 KISS::get_uint32()
 {
