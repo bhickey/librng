@@ -1,6 +1,12 @@
 #include "rng.h"
 #include "rng_internal.h"
 
+template <class S, class T>
+union StoT {
+    S a;
+    T b;
+};
+
 uint32_t 
 RNG::get_uint32()
 {
@@ -58,13 +64,17 @@ RNG::get_int(int n)
 float
 RNG::get_float()
 {
-	return ((float) (0x3f800000 | (get_uint32() & ((1 << 23) - 1))) - 1.0);
+	StoT<int,float> res;
+    res.a = 0x3F800000 | (get_uint32() & 0x3FFFFF);
+    return (res.b - 1.0);
 }
 
 double
 RNG::get_double()
 {
-	return ((double) (0x3ff0000000000000ULL | (get_uint64() & ((1ULL << 52) -1))) - 1.0);
+    StoT<int,double> res;
+    res.a = 0x3ff0000000000000ULL | (get_uint64() & (0xFFFFFFFFFFFFFULL));
+    return (res.b - 1.0);
 }
 
 double
