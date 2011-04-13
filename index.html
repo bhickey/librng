@@ -50,22 +50,40 @@
     </div>
 
     <p>libRNG provides the following generators:
+    <ul>
+        <li>KISS
+        <ul>
+            <li>KISS99</li>
+            <li>JKISS</li>
+            <li>JKISS32</li>
+            <li>JLKISS64</li> 
+            <li>SuperKISS</li>
+        </ul></li>
+        <li>Xorshift
+        <ul>
+            <li>32-bit &lt;13,17,5&gt;</li>
+            <li>64-bit &lt;13,7,17&gt;</li>
+            <li>64-bit templated</li>
+        </ul>
+        <li>A buffered RNG</li>
+    </ul>
 
-* KISS generators: KISS99, JKISS, JKISS32, JLKISS64, SuperKISS
-* Xorshift generators: 32-bit <13,17,5>, 64-bit <13,7,17>, a templated version.
-* A buffered RNG</p><h2>Dependencies</h2>
+</p><h2>Dependencies</h2>
 <p>libRNG has been tested with:
-* gcc v4.2.1, v4.3.2
-* GNU make v3.81
-* Debian 5.0, Ubuntu 10.10, OS X 10.6.6</p>
+<ul>
+    <li>gcc v4.2.1, v4.3.2</li>
+    <li>GNU make v3.81</li>
+    <li>Debian 5.0, Ubuntu 10.10, OS X 10.6.6</li>
+</ul>
+    </p>
 <h2>Install</h2>
 <p>Build a shared object with `make`</p>
 <h2>License</h2>
-<p>Unlicense <http://unlicense.org/></p>
+<p>libRNG is released into the public domain via <a href="http://www.unlicense.org">Unlicense</a>.</p>
 <h2>Authors</h2>
 <p>libRNG was written by Brendan Hickey. It contains code released into the public domain by George Marsaglia and David Jones.</p>
 <h2>Contact</h2>
-<p>Brendan Hickey <http://www.bhickey.net/contact></p>
+<p><a href="http://www.bhickey.net/contact/">Brendan Hickey</a></p>
 
 
     <h2>Download</h2>
