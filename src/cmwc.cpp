@@ -34,5 +34,5 @@ CMWC::get_uint32()
 {
     uint64_t t = 0xFFF0BF23 * _multiply + _carry;
     _carry = t >> 32;
-    return (_multiply = -(0xFFFFFFFF & t));
+    return (_multiply = 0xFFFFFFFF - (0xFFFFFFFF & t));
 }
