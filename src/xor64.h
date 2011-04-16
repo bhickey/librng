@@ -6,14 +6,13 @@
 #include "rng.h"
 
 class XOR64 : public RNG {
-	public:
-		XOR64();
-                RNG* split();
-                void seed(uint32_t);
-		void seed(RNG*);
-		uint64_t get_uint64();
-	private:
-                uint64_t _state;
+    public:
+            XOR64();
+            RNG* split();
+            void seed(RNG*);
+            uint64_t get_uint64();
+    private:
+            uint64_t _state;
 };
 
 #endif
