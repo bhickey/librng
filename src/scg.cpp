@@ -47,7 +47,7 @@ SCG::get_uint32()
     _x *= 0x6a5d39eae116586d;
     _y *= 0x3b91f78bdac4c89d;
 
-    return ((_x + _y) >> 16);
+    return ((_x + _y) >> 32);
 }
 
 void
