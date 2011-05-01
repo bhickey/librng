@@ -3,7 +3,7 @@
 ################################################################################
 
 DEBUG	:= NO
-CC	:= g++
+CC		:= g++
 
 DEFAULT_FLAGS   := -Wall -I${SRC_DIR}
 DEBUG_FLAGS	:= ${DEFAULT_FLAGS} -Wno-format -g -DDEBUG
