@@ -27,9 +27,9 @@ void
 JKISS32::seed(RNG *rng)
 {
 	_x = rng->get_uint32();
-	_y = rng->get_uint32();
 	_z = rng->get_uint32();
 	_w = rng->get_uint32();
+	_y = rng->get_nonzero_bits(32);
 }
 
 uint32_t
@@ -39,7 +39,7 @@ JKISS32::get_uint32()
         int32_t y = _y;
         y ^= (y << 5);
         y ^= (y >> 7);
-        y ^= (y << 22);
+        y ^= (y << 22); /* Do not set y=0! */
         _y = y;
         t = _z + _w + _c;
         _z = _w;
